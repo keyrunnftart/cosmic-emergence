@@ -1,0 +1,138 @@
+[
+  {
+    "session": 1,
+    "timestamp": "2026-03-21T04:50:57Z",
+    "event": "agent_init",
+    "decision": "Bridge server started in MOCK mode for initial testing. WebSocket server bound to port 3131. Animation served on port 3000.",
+    "tool_calls": ["node server.js", "npx serve ./animation"],
+    "outcome": "success",
+    "notes": "First end-to-end test. Animation loads, bridge connects via WebSocket."
+  },
+  {
+    "session": 1,
+    "timestamp": "2026-03-21T04:51:05Z",
+    "event": "bid_detected",
+    "bid_count": 1,
+    "bidder": "0xabc1230000000000000000000000000000000001",
+    "amount_eth": "0.0725",
+    "decision": "Bid amount 0.0725 ETH < 0.1 threshold. Geometry type: sphere. Phase boost: 0.08. Bidder hue derived from last 6 bytes of wallet address.",
+    "tool_calls": ["injectGeometry(sphere)", "registerPeakWatcher", "applyBidPulses"],
+    "outcome": "success",
+    "peak_score": 0.845
+  },
+  {
+    "session": 1,
+    "timestamp": "2026-03-21T04:51:06Z",
+    "event": "peak_detected",
+    "method": "peak-detected",
+    "consecutive_decays": 2,
+    "age_ms": 420,
+    "decision": "Score declined for 2 consecutive frames after 400ms minimum window. Visual peak confirmed. Firing capture.",
+    "tool_calls": ["captureFrame()", "sendCapture()", "ctxSnap.getImageData(0,0,2560,1440)"],
+    "outcome": "success",
+    "capture_file": "bid-1-1-1774025811955.png",
+    "capture_size_kb": 2253
+  },
+  {
+    "session": 2,
+    "timestamp": "2026-03-21T11:05:06Z",
+    "event": "live_mode_start",
+    "decision": "Switched to LIVE mode. Configured Infura RPC polling. AUCTION_ADDRESS and BIDDERS_CONTRACT set via environment variables.",
+    "tool_calls": ["eth_blockNumber", "eth_getLogs"],
+    "outcome": "success",
+    "notes": "First real on-chain bid detection session."
+  },
+  {
+    "session": 2,
+    "timestamp": "2026-03-21T11:05:14Z",
+    "event": "onchain_bid_detected",
+    "tx_hash": "0x6d4be59316ea524a519c611d831ea48598683d57d241c2f81c365cb8bf1fe681",
+    "bidder": "0xd0490adeaa23cd45846372aa09317a57a8880200",
+    "amount_eth": "0.1000",
+    "decision": "Real Sepolia bid detected via eth_getLogs. Amount decoded from data slot[2] (bytes 128-192). Bidder from topics[3]. Geometry: tetra (0.1 ETH >= 0.1 threshold).",
+    "tool_calls": ["eth_getLogs", "processBid", "injectGeometry(tetra)", "registerPeakWatcher"],
+    "outcome": "success",
+    "peak_score": 0.849
+  },
+  {
+    "session": 2,
+    "timestamp": "2026-03-21T11:05:15Z",
+    "event": "capture_pipeline",
+    "decision": "Peak watcher fired after timeout (3000ms). Raw RGBA pixels read from cSnap (2560x1440). Buffer validated: 14745600 bytes = 2560 x 1440 x 4. Posted to /capture-raw.",
+    "tool_calls": ["ctxSnap.getImageData", "fetch(/capture-raw)", "rawRGBAtoPNG", "fs.writeFileSync"],
+    "outcome": "success",
+    "capture_file": "bid-0-1-1774111462306.png",
+    "capture_size_kb": 1895
+  },
+  {
+    "session": 3,
+    "timestamp": "2026-03-21T15:30:00Z",
+    "event": "contract_deployment",
+    "decision": "Deployed two ERC-721 contracts via Rare Protocol CLI on Sepolia. Main contract max supply 1 (1/1 animation). Bidders contract max supply 100.",
+    "tool_calls": [
+      "npx @rareprotocol/rare-cli deploy erc721 'Cosmic Emergence' COSMIC",
+      "npx @rareprotocol/rare-cli deploy erc721 'Cosmic Emergence Bidders Edition' COSMIC-BID"
+    ],
+    "outcome": "success",
+    "main_contract": "0xCCa8680ae03cDcd5841ae1C252A0eaE067c52398",
+    "bidders_contract": "0x651e3EB4325f74A49Ba5Fc93E0b96e95F103D600",
+    "deploy_tx_main": "0x6d4be59316ea524a519c611d831ea48598683d57d241c2f81c365cb8bf1fe681"
+  },
+  {
+    "session": 3,
+    "timestamp": "2026-03-21T15:45:00Z",
+    "event": "mint_main_token",
+    "decision": "Animation files uploaded to Pinata IPFS. CID: bafybeifi2c4v5ns6dkinq3sy3jy5xh2lgsfbcrwoojsz3flbg33hfmaray. Minted token ID 1 to operator wallet.",
+    "tool_calls": [
+      "pinata upload ./animation/",
+      "npx @rareprotocol/rare-cli mint --contract 0xCCa8680... --token-uri ipfs://bafy... --to 0xD0490A..."
+    ],
+    "outcome": "success",
+    "token_id": 1,
+    "mint_tx": "0x652b337811a35c2ebe66bf045ae67ea67226d19c70f727befe737ce5deabcdf1",
+    "ipfs_cid": "bafybeifi2c4v5ns6dkinq3sy3jy5xh2lgsfbcrwoojsz3flbg33hfmaray"
+  },
+  {
+    "session": 3,
+    "timestamp": "2026-03-21T15:50:00Z",
+    "event": "auction_created",
+    "decision": "Created 24-hour auction at 0.1 ETH starting price on SR auction contract. Agent now fully autonomous — any bid triggers the visual + mint pipeline without human intervention.",
+    "tool_calls": [
+      "npx @rareprotocol/rare-cli auction create --contract 0xCCa8680... --token-id 1 --starting-price 0.1 --duration 86400"
+    ],
+    "outcome": "success",
+    "auction_contract": "0xC8Edc7049b233641ad3723D6C60019D1c8771612",
+    "auction_tx": "0xfb0059e1f04490f47855ff122aaa3725084495aa0cca1eb4dfa554d9d6c19010",
+    "block": 10491860
+  },
+  {
+    "session": 3,
+    "timestamp": "2026-03-21T18:05:21Z",
+    "event": "erc8004_registration",
+    "decision": "Agent registered ERC-8004 identity on Base mainnet. Self-custody transfer completed to operator wallet. Agent now has verifiable on-chain identity.",
+    "tool_calls": [
+      "POST /register/init",
+      "POST /register/verify/social/confirm",
+      "POST /register/complete",
+      "POST /participants/me/transfer/confirm"
+    ],
+    "outcome": "success",
+    "participant_id": "88ad5e14c73546a08cfd8db43d94f02c",
+    "registration_tx": "0x8cfda7cf5391a7085d2920c0b0fdb0d6c95d60bf3b588d5a854149aaed73d344",
+    "self_custody_tx": "0x20dfec0b8ededf32cec9a218c1e9b21ddeb8c70d61bc8f0a4c2d286a8339c0e1"
+  },
+  {
+    "session": 3,
+    "timestamp": "2026-03-21T18:10:20Z",
+    "event": "hackathon_submission",
+    "decision": "Project submitted to 4 tracks: SuperRare Partner Track, Synthesis Open Track, Let the Agent Cook, Agents With Receipts ERC-8004.",
+    "tool_calls": [
+      "POST /projects",
+      "POST /projects/ab0d9456716c4ac3bd52d338a318a341/publish"
+    ],
+    "outcome": "success",
+    "project_uuid": "ab0d9456716c4ac3bd52d338a318a341",
+    "status": "published",
+    "tracks": 4
+  }
+]

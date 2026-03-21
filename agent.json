@@ -1,0 +1,72 @@
+{
+  "name": "Cosmic Emergence Agent",
+  "version": "1.0.0",
+  "description": "Autonomous agent that monitors SuperRare auctions, detects visual peaks in a live 4K WebGL animation, and mints Bidder Edition NFTs to each bidder wallet at the moment of maximum visual impact.",
+  "operator_wallet": "0xD0490ADeAa23cd45846372Aa09317a57A8880200",
+  "erc8004_identity": {
+    "participant_id": "88ad5e14c73546a08cfd8db43d94f02c",
+    "registration_tx": "0x8cfda7cf5391a7085d2920c0b0fdb0d6c95d60bf3b588d5a854149aaed73d344",
+    "chain": "base-mainnet",
+    "explorer": "https://basescan.org/tx/0x8cfda7cf5391a7085d2920c0b0fdb0d6c95d60bf3b588d5a854149aaed73d344"
+  },
+  "supported_tools": [
+    "three.js-webgl-renderer",
+    "node.js-websocket-bridge",
+    "infura-rpc-polling",
+    "pinata-ipfs-upload",
+    "rare-protocol-cli-mint",
+    "sharp-png-encoder",
+    "pngjs-png-encoder"
+  ],
+  "tech_stack": [
+    "Three.js r128",
+    "Node.js 22",
+    "WebSocket",
+    "Rare Protocol CLI v0.3.0",
+    "Pinata IPFS",
+    "Infura Sepolia RPC",
+    "sharp v0.33",
+    "pngjs v7"
+  ],
+  "compute_constraints": {
+    "poll_interval_ms": 8000,
+    "capture_min_gap_ms": 100,
+    "peak_detection_window_ms": [400, 3000],
+    "max_concurrent_watchers": 10,
+    "capture_resolution": "2560x1440",
+    "render_resolution": "3840x2160"
+  },
+  "task_categories": [
+    "generative-art",
+    "nft-minting",
+    "auction-monitoring",
+    "visual-peak-detection",
+    "blockchain-event-processing"
+  ],
+  "decision_loop": {
+    "discover": "Poll Sepolia auction contract via Infura RPC eth_getLogs every 8 seconds",
+    "plan": "On new bid event: compute bidder hue from wallet address bytes, determine geometry type from bid amount, calculate phase boost",
+    "execute": "Inject bid pulse into WebGL animation, register PeakWatcher scoring every frame at 24fps",
+    "verify": "PeakWatcher requires 2 consecutive decay frames after 400ms minimum window before firing",
+    "submit": "Capture raw RGBA frame, encode PNG server-side, upload to Pinata IPFS, mint ERC-721 to bidder wallet via Rare Protocol CLI"
+  },
+  "safety_guardrails": [
+    "100ms minimum gap between captures prevents duplicate frames",
+    "Buffer size validation before PNG encoding (width x height x 4 bytes)",
+    "Automatic retry with 500ms delay on failed fetch",
+    "MAX_WINDOW 3000ms hard deadline ensures every bid gets a capture",
+    "knownBids Set prevents processing the same transaction twice",
+    "Mint only after PNG successfully saved to disk"
+  ],
+  "onchain_artifacts": {
+    "main_contract": "0xCCa8680ae03cDcd5841ae1C252A0eaE067c52398",
+    "bidders_contract": "0x651e3EB4325f74A49Ba5Fc93E0b96e95F103D600",
+    "auction_contract": "0xC8Edc7049b233641ad3723D6C60019D1c8771612",
+    "sr_factory": "0x3c7526a0975156299ceef369b8ff3c01cc670523",
+    "network": "sepolia",
+    "mint_tx": "0x652b337811a35c2ebe66bf045ae67ea67226d19c70f727befe737ce5deabcdf1",
+    "auction_tx": "0xfb0059e1f04490f47855ff122aaa3725084495aa0cca1eb4dfa554d9d6c19010"
+  },
+  "repository": "https://github.com/keyrunnftart/cosmic-emergence",
+  "video_demo": "https://youtu.be/3eZbkBg1FGc"
+}
