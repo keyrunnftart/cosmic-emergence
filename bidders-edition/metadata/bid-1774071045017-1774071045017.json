@@ -1,0 +1,35 @@
+{
+  "name": "Cosmic Emergence — Bidder's Edition #0",
+  "description": "A moment captured at peak luminance (score 0.829) during the cluster phase.",
+  "image": "PLACEHOLDER",
+  "attributes": [
+    {
+      "trait_type": "Bid Number",
+      "value": 0
+    },
+    {
+      "trait_type": "Bid Amount (ETH)",
+      "value": 1.889
+    },
+    {
+      "trait_type": "Cosmic Phase",
+      "value": "cluster"
+    },
+    {
+      "trait_type": "Agent Peak Score",
+      "value": 0.829
+    },
+    {
+      "trait_type": "Bidder Hue",
+      "value": "68°"
+    },
+    {
+      "trait_type": "Capture Time",
+      "value": "2026-03-21T05:30:44.175Z"
+    },
+    {
+      "trait_type": "Edition Type",
+      "value": "Bidder's Edition"
+    }
+  ]
+}

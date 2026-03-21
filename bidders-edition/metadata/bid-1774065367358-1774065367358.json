@@ -1,0 +1,35 @@
+{
+  "name": "Cosmic Emergence — Bidder's Edition #0",
+  "description": "A moment captured at peak luminance (score 0.784) during the spiral phase.",
+  "image": "PLACEHOLDER",
+  "attributes": [
+    {
+      "trait_type": "Bid Number",
+      "value": 0
+    },
+    {
+      "trait_type": "Bid Amount (ETH)",
+      "value": 3.46
+    },
+    {
+      "trait_type": "Cosmic Phase",
+      "value": "spiral"
+    },
+    {
+      "trait_type": "Agent Peak Score",
+      "value": 0.784
+    },
+    {
+      "trait_type": "Bidder Hue",
+      "value": "0°"
+    },
+    {
+      "trait_type": "Capture Time",
+      "value": "2026-03-21T03:56:06.979Z"
+    },
+    {
+      "trait_type": "Edition Type",
+      "value": "Bidder's Edition"
+    }
+  ]
+}

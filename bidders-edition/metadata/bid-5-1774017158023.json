@@ -1,0 +1,44 @@
+{
+  "name": "Cosmic Emergence — Bidder's Edition #5",
+  "description": "A moment captured by the on-chain agent at the peak of visual emergence. Bid #5 from 0x11111100… (0.200 ETH) collapsed this structure into the cosmos. The agent detected peak luminance (score 0.968) during the stable phase. No two Bidder's Editions share the same cosmos.",
+  "image": "PLACEHOLDER",
+  "external_url": "https://superrare.com",
+  "attributes": [
+    {
+      "trait_type": "Bid Number",
+      "value": 5
+    },
+    {
+      "trait_type": "Bid Amount (ETH)",
+      "value": 0.2
+    },
+    {
+      "trait_type": "Bidder",
+      "value": "0x11111100…"
+    },
+    {
+      "trait_type": "Cosmic Phase",
+      "value": "stable"
+    },
+    {
+      "trait_type": "Phase Vector",
+      "value": "0.18 / 0.00 / 0.00 / 0.00 / 0.89"
+    },
+    {
+      "trait_type": "Agent Peak Score",
+      "value": 0.968
+    },
+    {
+      "trait_type": "Bidder Hue",
+      "value": "0°"
+    },
+    {
+      "trait_type": "Capture Time",
+      "value": "2026-03-20T14:32:38.002Z"
+    },
+    {
+      "trait_type": "Edition Type",
+      "value": "Bidder's Edition"
+    }
+  ]
+}

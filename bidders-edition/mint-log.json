@@ -1,0 +1,62 @@
+[
+  {
+    "bidCount": 1,
+    "bidder": "0xabc1230000000000000000000000000000000001",
+    "amount": "0.0611",
+    "peakScore": 0.727,
+    "tokenId": "mock-1",
+    "txHash": "0xmockfc75c31522352",
+    "imageUri": "ipfs://QmMOCK1img",
+    "metaUri": "ipfs://QmMOCK1meta",
+    "timestamp": "2026-03-21T13:13:57.928Z",
+    "error": null
+  },
+  {
+    "bidCount": 2,
+    "bidder": "0xdef4560000000000000000000000000000000002",
+    "amount": "0.0847",
+    "peakScore": 0,
+    "tokenId": "mock-2",
+    "txHash": "0xmock201537420bf418",
+    "imageUri": "ipfs://QmMOCK2img",
+    "metaUri": "ipfs://QmMOCK2meta",
+    "timestamp": "2026-03-21T13:14:03.403Z",
+    "error": null
+  },
+  {
+    "bidCount": 3,
+    "bidder": "0x9876540000000000000000000000000000000003",
+    "amount": "0.1214",
+    "peakScore": 0,
+    "tokenId": "mock-3",
+    "txHash": "0xmock1788d3fd31c258",
+    "imageUri": "ipfs://QmMOCK3img",
+    "metaUri": "ipfs://QmMOCK3meta",
+    "timestamp": "2026-03-21T13:14:11.392Z",
+    "error": null
+  },
+  {
+    "bidCount": 4,
+    "bidder": "0x1111110000000000000000000000000000000004",
+    "amount": "0.1665",
+    "peakScore": 0,
+    "tokenId": "mock-4",
+    "txHash": "0xmock44cc997c0b7f38",
+    "imageUri": "ipfs://QmMOCK4img",
+    "metaUri": "ipfs://QmMOCK4meta",
+    "timestamp": "2026-03-21T13:14:27.093Z",
+    "error": null
+  },
+  {
+    "bidCount": 1,
+    "bidder": "0xd0490adeaa23cd45846372aa09317a57a8880200",
+    "amount": "0.1000",
+    "peakScore": 0.534,
+    "tokenId": null,
+    "txHash": null,
+    "imageUri": null,
+    "metaUri": null,
+    "timestamp": "2026-03-21T16:44:22.315Z",
+    "error": "error: unknown command 'upload'\n"
+  }
+]

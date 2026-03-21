@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+bridge/node_modules/
+
+# Captured images — too large for git, stored locally only
+bidders-edition/captures/
+bidders-edition/metadata/
+
+# Mint log — regenerated at runtime
+bidders-edition/mint-log.json
+
+# Environment — never commit private keys
+.env
+bridge/.env
+*.env
+
+# rare-cli config — contains private key
+.rare/
+~/.rare/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build artifacts
+dist/
+build/

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmic Emergence</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: #000;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  color-scheme: dark;
+}
+
+#container {
+  position: fixed;
+  inset: 0;
+}
+
+#cOut {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* HUD — status bar */
+#hud {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: rgba(255, 200, 80, 0.65);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 160, 40, 0.15);
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+/* Bid flash overlay */
+#bidFlash {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, rgba(255,180,60,0.12) 0%, transparent 70%);
+  transition: opacity 0.1s ease-in;
+}
+#bidFlash.active {
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+  animation: bidPulse 2s ease-out forwards;
+}
+@keyframes bidPulse {
+  0%   { opacity: 1; }
+  30%  { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+/* Key hint — hidden by default, press K to toggle */
+#keyhint {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: rgba(255, 200, 80, 0.28);
+  pointer-events: none;
+  z-index: 10;
+  line-height: 1.7;
+  text-align: right;
+  display: none;
+}
+</style>
+</head>
+<body>
+<div id="container">
+  <canvas id="cOut"></canvas>
+  <div id="bidFlash"></div>
+</div>
+<div id="hud">BRIDGE ○ offline &nbsp;|&nbsp; AUCTION ○ idle &nbsp;|&nbsp; BIDS 0 bids &nbsp;|&nbsp; MINTED —</div>
+<div id="keyhint">
+  B — simulate bid<br>
+  9 — manual capture<br>
+  0 — download log<br>
+  1/2/3 — inject geo
+</div>
+
+<script>
+// Trigger bid flash when a bid arrives
+const origOnBidReceived = window.onBidReceived;
+function flashBid() {
+  const el = document.getElementById('bidFlash');
+  el.classList.remove('active');
+  void el.offsetWidth; // reflow
+  el.classList.add('active');
+}
+// Will be overridden by sketch.js — hook after load
+// K key: toggle dev key hints
+document.addEventListener('keydown', e => {
+  if (e.key === 'k' || e.key === 'K') {
+    const kh = document.getElementById('keyhint');
+    kh.style.display = kh.style.display === 'block' ? 'none' : 'block';
+  }
+});
+
+window.addEventListener('load', () => {
+  const orig = window.onBidReceived;
+  window.onBidReceived = function(bidData, visual, position) {
+    flashBid();
+    return orig(bidData, visual, position);
+  };
+}, { once: true });
+</script>
+
+<!-- Three.js r128 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Animation + blockchain integration -->
+<script src="sketch.js"></script>
+</body>
+</html>

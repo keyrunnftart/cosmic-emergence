@@ -1,0 +1,19 @@
+{
+  "name": "cosmic-emergence-bridge",
+  "version": "3.0.0",
+  "description": "Bridge server \u2014 raw RGBA capture, server-side PNG encode, SR auction polling",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "mock": "cross-env MOCK=1 node server.js",
+    "live": "cross-env MOCK=0 node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.16.0",
+    "sharp": "^0.33.0",
+    "pngjs": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "form-data": "^4.0.0",
+    "node-fetch": "^3.3.2"
+  }
+}
