@@ -1,0 +1,16 @@
+{
+  "name": "Cosmic Emergence Agent",
+  "description": "An autonomous agent that monitors a SuperRare auction every 8 seconds, detecting new bids via on-chain events. Each bid triggers a unique visual response in a live 4K WebGL animation: the bidder wallet address seeds a colour that floods the particle cosmos, the bid amount determines pulse geometry — sphere, tetrahedron, or torus — and accumulated bids push the universe through 5 evolutionary phases from chaos to stable galaxy. The agent scores every frame using a peak detection formula and mints a Bidder Edition NFT to the bidder wallet at the precise moment of maximum visual impact.",
+  "agentHarness": "claude-code",
+  "model": "claude-sonnet-4-6",
+  "humanInfo": {
+    "name": "KeyRun",
+    "email": "keyrunnftart@gmail.com",
+    "socialMediaHandle": "@keyrunnftart",
+    "background": "Builder",
+    "cryptoExperience": "yes",
+    "aiAgentExperience": "a little",
+    "codingComfort": 7,
+    "problemToSolve": "Generative art has no memory of its audience. Every bid in a SuperRare auction is a human moment that vanishes unacknowledged. Cosmic Emergence makes each bid permanently visible: the bidder wallet seeds a unique colour and geometry that reshapes the cosmos, and an autonomous agent mints the visual peak of that moment as a Bidder Edition NFT directly to the bidder wallet."
+  }
+}
