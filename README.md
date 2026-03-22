@@ -112,3 +112,7 @@ node server.js
 CC BY-NC-ND 4.0 — view and share with attribution, no commercial use, no derivatives.
 
 © 2026 keyrunnftart
+
+## Live Demo
+
+https://keyrunnft.art/hackathon#cosmic-emergence
