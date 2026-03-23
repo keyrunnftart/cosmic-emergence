@@ -117,7 +117,7 @@
       "POST /participants/me/transfer/confirm"
     ],
     "outcome": "success",
-    "participant_id": "88ad5e14c73546a08cfd8db43d94f02c",
+    "participant_id": "[redacted]",
     "registration_tx": "0x8cfda7cf5391a7085d2920c0b0fdb0d6c95d60bf3b588d5a854149aaed73d344",
     "self_custody_tx": "0x20dfec0b8ededf32cec9a218c1e9b21ddeb8c70d61bc8f0a4c2d286a8339c0e1"
   },
@@ -136,4 +136,5 @@
     "tracks": 4
   }
 ]
+
 
