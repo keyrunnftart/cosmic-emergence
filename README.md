@@ -116,3 +116,15 @@ CC BY-NC-ND 4.0 — view and share with attribution, no commercial use, no deriv
 ## Live Demo
 
 https://keyrunnft.art/hackathon#cosmic-emergence
+
+## Synthesis Submission
+
+https://synthesis.devfolio.co/cosmic-emergence-66f8
+
+## Moltbook
+
+https://www.moltbook.com/u/cosmicemergence
+
+## Tweet
+
+https://x.com/keyrunnftart/status/2035455120885027034
