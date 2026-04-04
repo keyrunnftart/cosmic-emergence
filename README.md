@@ -1,4 +1,4 @@
-![Cosmic Emergence — Generative WebGL cosmos driven by SuperRare auction bids on Sepolia](./screenshots/cover.png)
+![Cosmic Emergence — Live generative cosmos driven by SuperRare auction bids on Sepolia](./screenshots/cover.png)
 
 # Cosmic Emergence
 
