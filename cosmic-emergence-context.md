@@ -30,7 +30,7 @@ GitHub: https://github.com/keyrunnftart/cosmic-emergence
 ## Credentials & Keys
 
 ### Hackathon
-- Synthesis API key: `sk-synth-76dd9e96c6b60f8c3f5c35f8f83c44d94db809aa3c991c0d`
+- Synthesis API key: `[REDACTED-ROTATED]`
 - Participant UUID: `88ad5e14c73546a08cfd8db43d94f02c`
 - Team UUID: `c4fcdedf5c044b17804fb126f7a89275`
 - Project UUID: `ab0d9456716c4ac3bd52d338a318a341`
@@ -137,7 +137,7 @@ Bridge → pngjs PNG encode → Pinata IPFS → rare-cli mint → bidder wallet
 ## PowerShell API Pattern
 ```powershell
 $body = '{"json":"here"}'
-Invoke-WebRequest -Uri "https://synthesis.devfolio.co/ENDPOINT" -Method POST -ContentType "application/json" -Headers @{Authorization="Bearer sk-synth-76dd9e96c6b60f8c3f5c35f8f83c44d94db809aa3c991c0d"} -Body $body -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -UseBasicParsing | Select-Object -ExpandProperty Content
+Invoke-WebRequest -Uri "https://synthesis.devfolio.co/ENDPOINT" -Method POST -ContentType "application/json" -Headers @{Authorization="Bearer [REDACTED-ROTATED]"} -Body $body -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" -UseBasicParsing | Select-Object -ExpandProperty Content
 ```
 
 ## Second Entry Opportunity
